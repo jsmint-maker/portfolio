@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mint Codes Portfolio ⚡
 
-## Getting Started
+Welcome! This is the official codebase for my professional web portfolio, **Mint Codes**. 
 
-First, run the development server:
+If you are a **prospective client or partner**, this repository is open for you to inspect my engineering standards, code structure, and technical capabilities.
+
+
+
+## 🌟 What This Portfolio Showcases
+* **Modern Tech Stack:** Built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS** for top-tier performance and type safety.
+* **Custom UI & Design System:** Tailored dark-mode architecture (`#0b0f19`) accented with high-contrast cyan (`#00f2fe`), optimized seamlessly for mobile and desktop screens.
+* **Full-Stack Readiness:** Engineered to integrate cleanly with robust backend systems (NestJS, Supabase) and third-party APIs.
+
+
+## 📬 Let's Work Together
+Looking to build a high-performance web application, custom platform, or digital solution? Feel free to reach out to discuss your project.
+
+
+## 💻 For Developers & Technical Reviewers
+If you are an engineering lead or developer reviewing the source code structure, you can inspect it locally:
 
 ```bash
+# Clone the repository
+git clone https://github.com/jsmint-maker/portfolio.git
+
+# Navigate into the directory
+cd portfolio
+
+# Install dependencies
+npm install
+
+# Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open http://localhost:3000 in your browser.
