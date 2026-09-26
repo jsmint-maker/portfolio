@@ -92,11 +92,11 @@ export default function Projects() {
     )
 
     return (
-        <section className="showcase-section" aria-labelledby="projects-heading">
+        <section id='projects'  className="showcase-section" aria-labelledby="projects-heading">
             <div className="showcase-shell">
                 <div className="showcase-heading-row">
                     <div>
-                        <p className="section-index">// 03 - Selected Work</p>
+                        <p className="section-index">// 03 - Selected Works</p>
                         <h1 id="projects-heading">Projects <em>Showcase</em></h1>
                         <p className="showcase-intro">A selection of digital products, systems, and experiments built with intention.</p>
                     </div>

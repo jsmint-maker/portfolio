@@ -1,12 +1,15 @@
+import { SiCloudflare, SiTelegram, SiResend, SiStripe, SiNextdotjs, SiTypescript, SiTailwindcss, SiNestjs, SiSupabase, SiRedis, SiSentry, SiUpstash, SiPrisma } from "react-icons/si";
+import { Twilio, Chapa, BullMQ } from './otherIcons';
+
 const categories = [
     {
         number: '01',
         title: 'Core Frontend',
         description: 'Interfaces that feel as good as they perform.',
         technologies: [
-            { name: 'Next.js', mark: 'N', detail: 'React framework' },
-            { name: 'TypeScript', mark: 'TS', detail: 'Typed systems' },
-            { name: 'Tailwind CSS', mark: '≈', detail: 'Utility styling' },
+            { name: 'Next.js', mark: 'N', icon: SiNextdotjs, detail: 'React framework' },
+            { name: 'TypeScript', mark: 'TS', icon: SiTypescript, detail: 'Typed systems' },
+            { name: 'Tailwind CSS', mark: '≈', icon: SiTailwindcss, detail: 'Utility styling' },
         ],
     },
     {
@@ -14,13 +17,13 @@ const categories = [
         title: 'Backend & APIs',
         description: 'Secure services built for real-world scale.',
         technologies: [
-            { name: 'NestJS', mark: 'N', detail: 'Node architecture' },
-            { name: 'Supabase', mark: 'S', detail: 'Backend platform' },
-            { name: 'Chapa', mark: 'C', detail: 'Payments' },
-            { name: 'Stripe', mark: 'S', detail: 'Payments' },
-            { name: 'Resend', mark: 'R', detail: 'Transactional email' },
-            { name: 'Twilio', mark: 'T', detail: 'Communications' },
-            { name: 'Telegram', mark: '✈', detail: 'Messaging API' },
+            { name: 'NestJS', mark: 'N', icon: SiNestjs, detail: 'Node architecture' },
+            { name: 'Supabase', mark: 'S', icon: SiSupabase, detail: 'Backend platform' },
+            { name: 'Chapa', mark: 'C', icon: Chapa, detail: 'Payments' },
+            { name: 'Stripe', mark: 'S', icon: SiStripe, detail: 'Payments' },
+            { name: 'Resend', mark: 'R', icon: SiResend, detail: 'Transactional email' },
+            { name: 'Twilio', mark: 'T', icon: Twilio, detail: 'Communications' },
+            { name: 'Telegram', mark: '✈', icon: SiTelegram, detail: 'Messaging API' },
         ],
     },
     {
@@ -28,10 +31,10 @@ const categories = [
         title: 'Data & Operations',
         description: 'The quiet infrastructure behind reliable products.',
         technologies: [
-            { name: 'Redis', mark: 'R', detail: 'In-memory data' },
-            { name: 'BullMQ', mark: 'B', detail: 'Job queues' },
-            { name: 'Cloudflare R2', mark: 'R2', detail: 'Object storage' },
-            { name: 'Prisma', mark: 'P', detail: 'Type-safe ORM' },
+            { name: 'Redis', mark: 'R', icon: SiRedis, detail: 'In-memory data' },
+            { name: 'BullMQ', mark: 'B', icon: BullMQ, detail: 'Job queues' },
+            { name: 'Cloudflare R2', mark: 'R2', icon: SiCloudflare, detail: 'Object storage' },
+            { name: 'Prisma', mark: 'P', icon: SiPrisma, detail: 'Type-safe ORM' },
         ],
     },
     {
@@ -39,8 +42,8 @@ const categories = [
         title: 'Reliability & Monitoring',
         description: 'Confidence from first deploy to first million users.',
         technologies: [
-            { name: 'Sentry', mark: 'S', detail: 'Error tracking' },
-            { name: 'UptimeRobot', mark: 'U', detail: 'Uptime monitoring' },
+            { name: 'Sentry', mark: 'S', icon: SiSentry, detail: 'Error tracking' },
+            { name: 'UptimeRobot', mark: 'U', icon: SiUpstash, detail: 'Uptime monitoring' },
         ],
     },
 ]
@@ -65,48 +68,47 @@ export default function TechStack() {
     return (
         <main className="architecture-page">
             <NetworkGraphic />
-            <div className="ambient ambient-one" />
-            <div className="ambient ambient-two" />
-
-            <section className="architecture-shell" aria-labelledby="architecture-title">
+            <section id="skills" className="architecture-shell" aria-labelledby="architecture-title">
                 <header className="architecture-header">
-                    <div className="eyebrow"><span className="eyebrow-dot" /> Mint Codes / 2024—25</div>
+                    <div className="eyebrow"><span className="eyebrow-dot" /> MINT CODES // V1.0</div>
                     <div className="header-line" />
-                    <div className="status"><span className="status-pulse" /> Systems online</div>
+                    <div className="status">[STATUS: ONLINE]</div>
                 </header>
 
                 <div className="intro">
-                    <p className="section-index">// 02 — stack</p>
+                    <p className="section-index">// 02 — STACK</p>
                     <h1 id="architecture-title">Tech Stack <span>&amp;</span><br />Engineering Architecture</h1>
                     <p className="intro-copy">A considered stack for building digital products that are fast, resilient, and made to last.</p>
                 </div>
 
                 <div className="category-grid">
                     {categories.map((category) => (
-                        <article className="category-card" key={category.number}>
-                            <div className="card-topline"><span>{category.number}</span><span className="corner-mark">↗</span></div>
+                        <article className="category-card rounded-2xl" key={category.number}>
+                            <div className="card-topline"><span>{category.number}</span></div>
                             <div className="category-heading">
                                 <h2>{category.title}</h2>
                                 <p>{category.description}</p>
                             </div>
                             <div className="tech-list">
-                                {category.technologies.map((technology) => (
-                                    <div className="tech-item" key={technology.name}>
-                                        <span className="tech-node" aria-hidden="true"><span>{technology.mark}</span></span>
-                                        <span className="tech-name">{technology.name}</span>
-                                        <span className="tech-detail">{technology.detail}</span>
-                                    </div>
-                                ))}
+                                {category.technologies.map((technology) => {
+                                    const IconComponent = technology.icon;
+
+                                    return (
+                                        <div className="tech-item" key={technology.name}>
+                                            <span className="tech-node" aria-hidden="true">
+                                                {IconComponent ? (<IconComponent className="w-4 h-4 text-cyan-400" />) : (<span>{technology.mark}</span>)
+
+                                                }
+                                            </span>
+                                            <span className="tech-name">{technology.name}</span>
+                                            <span className="tech-detail">{technology.detail}</span>
+                                        </div>
+                                    )
+                                })}
                             </div>
                         </article>
                     ))}
                 </div>
-
-                <footer className="architecture-footer">
-                    <span>Designed for momentum.</span>
-                    <span className="footer-rule" />
-                    <span>mintcodes.dev <b>↗</b></span>
-                </footer>
             </section>
         </main>
     )

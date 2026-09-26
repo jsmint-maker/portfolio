@@ -8,7 +8,7 @@
   color-scheme: dark;
   --background: #0b0f19;
   --foreground: #e9f2f4;
-  --border: rgba(157, 188, 197, 0.16);
+  --border: #9dbcc529;
   --muted-foreground: #7e929c;
   --radius: 0.75rem;
   --mint: #00f2fe;
@@ -74,7 +74,6 @@ body {
   z-index: 1;
   width: min(1240px, calc(100% - 48px));
   margin: 0 auto;
-  padding: 42px 0 30px;
 }
 .architecture-header,
 .architecture-footer {
@@ -121,7 +120,7 @@ body {
 }
 .intro {
   max-width: 760px;
-  padding: clamp(86px, 13vw, 156px) 0 74px;
+  padding: 5rem 0 20px;
 }
 .section-index {
   margin: 0 0 22px;
@@ -174,7 +173,6 @@ body {
     background 0.3s ease;
 }
 .category-card:hover {
-  transform: translateY(-5px);
   border-color: rgba(0, 242, 254, 0.48);
   background: linear-gradient(
     145deg,
@@ -185,7 +183,7 @@ body {
 .card-topline {
   display: flex;
   justify-content: space-between;
-  color: var(--mint);
+  color: #5f7680;
   font: 11px monospace;
   letter-spacing: 0.14em;
 }
@@ -195,7 +193,7 @@ body {
 }
 .category-heading {
   min-height: 132px;
-  padding-top: 58px;
+  padding-top: 20px;
 }
 .category-heading h2 {
   margin: 0;
@@ -297,7 +295,7 @@ body {
 }
 .ambient-one {
   top: -190px;
-  right: -120px;
+  left: -120px;
 }
 .ambient-two {
   bottom: -280px;
@@ -429,7 +427,7 @@ body {
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(157, 188, 197, 0.14);
-  border-radius: 10px;
+  border-radius: 16px;
   background: linear-gradient(
     145deg,
     rgba(21, 32, 47, 0.88),
@@ -476,7 +474,7 @@ body {
 .project-card-content {
   position: relative;
   margin-top: auto;
-  padding: 50px 0 34px;
+  padding: 0 0 40px;
 }
 .project-card-content h3 {
   margin: 0 0 12px;
