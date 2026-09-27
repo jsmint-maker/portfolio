@@ -1,26 +1,14 @@
 "use client"
 
 import { ArrowUpRight, Code2, Globe2, Sparkles } from 'lucide-react'
-import { useEffect, useState } from 'react';
 import MintCodesLogoMark from './MintCodesLogoMark';
 
 export default function Hero() {
-    const [scrolled, setScrolled] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
     return (
-        <main className="overflow-hidden bg-[#0b0f19] text-white selection:bg-[#00f2fe]/25 selection:text-white">
+        <main id='home' className="scroll-mt-24 overflow-hidden bg-[#0b0f19] text-white selection:bg-[#00f2fe]/25 selection:text-white">
             <div className="relative isolate min-h-fit">
                 <div className="grid-overlay pointer-events-none absolute inset-0 opacity-40" />
-
-                <section id='home'  className="relative z-10 mx-auto flex min-h-[calc(100vh-88px)] w-full max-w-7xl items-center px-6 pb-16 pt-12 lg:px-10 lg:pb-24 lg:pt-4">
+                <section id='home' className="content-shell relative z-10 flex min-h-[calc(100vh-88px)] items-center pb-16 pt-12 lg:pb-24 lg:pt-4">
                     <div className="grid w-full items-center gap-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)] lg:gap-12">
                         <div className="max-w-3xl">
                             <h1 className="max-w-4xl text-5xl leading-[0.98] font-semibold tracking-[-0.045em] text-balance sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
@@ -39,7 +27,7 @@ export default function Hero() {
 
                         <div id="about" className="relative mx-auto w-full max-w-md lg:justify-self-end">
                             <div className="absolute -inset-10 rounded-full bg-[#00f2fe]/10 blur-3xl" />
-                            <div className="relative rounded-3xl border border-white/10 bg-white/[0.035] p-5 shadow-2xl backdrop-blur-sm sm:p-7">
+                            <div className="relative rounded-2xl border border-white/10 bg-white/[0.035] p-5 shadow-2xl backdrop-blur-sm sm:p-7">
                                 <div className="mb-14 flex items-center justify-between text-[10px] tracking-[0.2em] text-slate-500 uppercase"><span>ARCHITECTURE / 01</span></div>
                                 <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-2xl border border-[#00f2fe]/15 bg-[#0b1520]">
                                     <div className="absolute size-56 rounded-full border border-[#00f2fe]/15" />
@@ -54,6 +42,11 @@ export default function Hero() {
                         </div>
                     </div>
                 </section>
+                <footer className="architecture-header mx-26">
+                    <div className="eyebrow"><span className="eyebrow-dot" /> MINT CODES // V1.0</div>
+                    <div className="header-line" />
+                    <div className="status">[STATUS: ONLINE]</div>
+                </footer>
             </div>
         </main>
     )

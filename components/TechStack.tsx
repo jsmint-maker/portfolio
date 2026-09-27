@@ -1,14 +1,29 @@
+import type { ComponentType } from "react";
 import { SiCloudflare, SiTelegram, SiResend, SiStripe, SiNextdotjs, SiTypescript, SiTailwindcss, SiNestjs, SiSupabase, SiRedis, SiSentry, SiUpstash, SiPrisma } from "react-icons/si";
-import { Twilio, Chapa, BullMQ } from './otherIcons';
+import { Twilio, Chapa, BullMQ } from './OtherIcons';
 
-const categories = [
+type Technology = {
+    name: string
+    mark: string
+    icon?: ComponentType<{ className?: string }>
+    detail: string
+}
+
+type Category = {
+    number: string
+    title: string
+    description: string
+    technologies: Technology[]
+}
+
+const categories: Category[] = [
     {
         number: '01',
         title: 'Core Frontend',
         description: 'Interfaces that feel as good as they perform.',
         technologies: [
             { name: 'Next.js', mark: 'N', icon: SiNextdotjs, detail: 'React framework' },
-            { name: 'TypeScript', mark: 'TS', icon: SiTypescript, detail: 'Typed systems' },
+            { name: 'TypeScript', mark: 'TS', icon: SiTypescript, detail: 'Type safety' },
             { name: 'Tailwind CSS', mark: '≈', icon: SiTailwindcss, detail: 'Utility styling' },
         ],
     },
@@ -18,12 +33,12 @@ const categories = [
         description: 'Secure services built for real-world scale.',
         technologies: [
             { name: 'NestJS', mark: 'N', icon: SiNestjs, detail: 'Node architecture' },
-            { name: 'Supabase', mark: 'S', icon: SiSupabase, detail: 'Backend platform' },
+            { name: 'Supabase', mark: 'S', icon: SiSupabase, detail: 'Postgres & Auth' },
             { name: 'Chapa', mark: 'C', icon: Chapa, detail: 'Payments' },
             { name: 'Stripe', mark: 'S', icon: SiStripe, detail: 'Payments' },
             { name: 'Resend', mark: 'R', icon: SiResend, detail: 'Transactional email' },
-            { name: 'Twilio', mark: 'T', icon: Twilio, detail: 'Communications' },
-            { name: 'Telegram', mark: '✈', icon: SiTelegram, detail: 'Messaging API' },
+            { name: 'Twilio', mark: 'T', icon: Twilio, detail: 'SMS & Voice API' },
+            { name: 'Telegram API', mark: '✈', icon: SiTelegram, detail: 'Event triggers' },
         ],
     },
     {
@@ -33,7 +48,7 @@ const categories = [
         technologies: [
             { name: 'Redis', mark: 'R', icon: SiRedis, detail: 'In-memory data' },
             { name: 'BullMQ', mark: 'B', icon: BullMQ, detail: 'Job queues' },
-            { name: 'Cloudflare R2', mark: 'R2', icon: SiCloudflare, detail: 'Object storage' },
+            { name: 'Cloudflare R2', mark: 'R2', icon: SiCloudflare, detail: 'Cloud storage' },
             { name: 'Prisma', mark: 'P', icon: SiPrisma, detail: 'Type-safe ORM' },
         ],
     },
@@ -48,36 +63,16 @@ const categories = [
     },
 ]
 
-function NetworkGraphic() {
-    return (
-        <svg className="network-graphic" viewBox="0 0 900 500" fill="none" aria-hidden="true">
-            <path d="M-40 282C89 217 125 304 221 254S384 148 491 220s151 50 227-25 113-68 222-108" />
-            <path d="M90 540c34-96 83-167 155-187s111 25 163-54 52-162 142-179 155 23 231-50" />
-            <path d="M296-40c8 96-9 148 48 202s145 3 172 93 19 159 101 183 141-11 195 62" />
-            <g className="network-nodes">
-                <circle cx="90" cy="261" r="3" /><circle cx="221" cy="254" r="3" /><circle cx="384" cy="171" r="3" />
-                <circle cx="491" cy="220" r="3" /><circle cx="718" cy="195" r="3" /><circle cx="875" cy="87" r="3" />
-                <circle cx="245" cy="353" r="3" /><circle cx="408" cy="299" r="3" /><circle cx="550" cy="120" r="3" />
-                <circle cx="757" cy="248" r="3" /><circle cx="296" cy="162" r="3" />
-            </g>
-        </svg>
-    )
-}
+
 
 export default function TechStack() {
     return (
         <main className="architecture-page">
-            <NetworkGraphic />
-            <section id="skills" className="architecture-shell" aria-labelledby="architecture-title">
-                <header className="architecture-header">
-                    <div className="eyebrow"><span className="eyebrow-dot" /> MINT CODES // V1.0</div>
-                    <div className="header-line" />
-                    <div className="status">[STATUS: ONLINE]</div>
-                </header>
+            <section id="skills" className="architecture-shell content-shell scroll-mt-12" aria-labelledby="architecture-title">
 
                 <div className="intro">
-                    <p className="section-index">// 02 — STACK</p>
-                    <h1 id="architecture-title">Tech Stack <span>&amp;</span><br />Engineering Architecture</h1>
+                    <p className="section-index">// 01 — TECH STACK</p>
+                    <h1 id="architecture-title" className="section-title">Tech Stack <span className="section-title-accent">&amp;</span> Engineering Architecture</h1>
                     <p className="intro-copy">A considered stack for building digital products that are fast, resilient, and made to last.</p>
                 </div>
 

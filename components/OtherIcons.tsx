@@ -1,4 +1,6 @@
-const Twilio = () => (
+import type { JSX } from "react";
+
+const Twilio = (): JSX.Element => (
   <svg xmlns="http://www.w3.org/2000/svg" width={25} height={25}>
     <svg fill="none" viewBox="0 0 512 512" x={-1.5} y={-1.5}>
       <g fill="oklch(78.9% 0.154 211.53)">
@@ -9,7 +11,7 @@ const Twilio = () => (
   </svg>
 );
 
-const Chapa = () => (
+const Chapa = (): JSX.Element => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlSpace="preserve"
@@ -32,7 +34,7 @@ const Chapa = () => (
   </svg>
 );
 
-const BullMQ = () => (
+const BullMQ = (): JSX.Element => (
   <svg xmlns="http://www.w3.org/2000/svg" width={17} height={17}>
     <svg fill="none" viewBox="0 0 512 512">
       <svg viewBox="0 0 1128 716">

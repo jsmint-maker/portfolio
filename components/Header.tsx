@@ -1,9 +1,11 @@
+'use client'
+
 import { ArrowUpRight } from "lucide-react";
 import MintCodesLogoMark from "./MintCodesLogoMark";
 
 export default function Header() {
     const navLinks = [
-        { name: 'Home', href: '#' },
+        { name: 'Home', href: '#home' },
         { name: 'Skills', href: '#skills' },
         { name: 'Projects', href: '#projects' },
         { name: 'Services', href: '#services' },
@@ -21,13 +23,20 @@ export default function Header() {
                     <a
                         key={link.name}
                         href={link.href}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            const target = document.querySelector(link.href);
+                            if (target) {
+                                target.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }}
                         className="text-sm text-gray-300 hover:text-[#00f2fe] transition-colors font-medium tracking-wide"
                     >
                         {link.name}
                     </a>
                 ))}
             </nav>
-            <a href="#contact" className="rounded-xl border border-white/15 px-3 py-2 text-xs font-medium text-slate-300 transition-colors hover:border-[#00f2fe]/60 hover:text-white whitespace-nowrap flex">Let&apos;s talk <ArrowUpRight className="ml-1 size-3.5" aria-hidden="true" /></a>
+            <a href="https://t.me/MintCodes_16" className="rounded-lg border border-white/15 px-3 py-2 text-xs font-medium text-slate-300 transition-colors hover:border-[#00f2fe]/60 hover:text-white whitespace-nowrap flex">Let&apos;s talk <ArrowUpRight className="ml-1 size-3.5" aria-hidden="true" /></a>
         </header>
     )
 }

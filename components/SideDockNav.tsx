@@ -19,8 +19,8 @@ export default function SideDockNav() {
             {/* Toggle Tab Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`absolute z-2 bg-[#0b0f19]/50 backdrop-blur-xl border-y border-l border-white/20 text-[#00f2fe] flex items-center justify-center h-20 w-5 px-0.5 rounded-l-xl hover:bg-[#00f2fe]/10 transition-all duration-300
-                      ${isOpen ? 'right-[57.5px]' : 'right-0'}
+                className={`absolute z-2 bg-[#0b0f19]/50 backdrop-blur-xl border-y border-l text-[#00f2fe] flex items-center justify-center h-20 w-5 px-0.5 rounded-l-lg hover:bg-[#00f2fe]/10 transition-all duration-300
+                      ${isOpen ? 'right-[57.5px] border-[#00f2fe]/40' : 'right-0 border-white/20'}
                     `}
                 aria-label="Toggle Navigation Dock"
             >
@@ -28,7 +28,7 @@ export default function SideDockNav() {
             </button>
 
             {/* Side Dock Container */}
-            <div className={`bg-[#0b0f19]/50 border-y border-l border-white/20 rounded-l-2xl backdrop-blur-xl py-1 flex flex-col  shadow-2xl transition-all duration-300 ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'
+            <div className={`bg-[#0b0f19]/50 border-y border-l ${isOpen ? '' : ''} rounded-l-lg backdrop-blur-xl py-1 flex flex-col  shadow-2xl transition-all duration-300 ${isOpen ? 'translate-x-0 opacity-100 border-[#00f2fe]/40' : 'translate-x-full opacity-0 pointer-events-none border-white/20'
                 }`}>
                 {navItems.map((item) => {
                     const IconComponent = item.icon;

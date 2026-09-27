@@ -5,8 +5,19 @@ import {
     Layers3,
     Sparkles,
 } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 
-const services = [
+type Service = {
+    number: string
+    icon: LucideIcon
+    title: string
+    description: string
+    action: string
+    accent: string
+    iconStyle: string
+}
+
+const services: Service[] = [
     {
         number: '01',
         icon: Bug,
@@ -14,8 +25,8 @@ const services = [
         description:
             'Quick patching of mobile layout overflows, broken grids, and Next.js hydration errors for fast turnaround.',
         action: 'Inquire Now',
-        accent: 'border-cyan-400/35 bg-cyan-400/[0.04]',
-        iconStyle: 'bg-cyan-400/10 text-cyan-300',
+        accent: 'border-cyan-400/40 bg-cyan-400/[0.04]',
+        iconStyle: 'bg-cyan-400/15 text-cyan-300',
     },
     {
         number: '02',
@@ -23,9 +34,9 @@ const services = [
         title: 'Frontend Pages from Scratch',
         description:
             'High-converting, mobile-first landing pages or digital hubs built from the ground up for businesses with zero web presence.',
-        action: 'Book Service',
-        accent: 'border-violet-400/25 bg-violet-400/[0.04]',
-        iconStyle: 'bg-violet-400/10 text-violet-300',
+        action: 'Inquire Now',
+        accent: 'border-cyan-400/30 bg-cyan-400/[0.03]',
+        iconStyle: 'bg-cyan-400/10 text-cyan-400',
     },
     {
         number: '03',
@@ -34,36 +45,35 @@ const services = [
         description:
             'Modernizing existing layouts into pixel-perfect, responsive code using Tailwind and modern design systems.',
         action: 'Inquire Now',
-        accent: 'border-emerald-400/25 bg-emerald-400/[0.04]',
-        iconStyle: 'bg-emerald-400/10 text-emerald-300',
+        accent: 'border-cyan-400/25 bg-cyan-400/[0.02]',
+        iconStyle: 'bg-cyan-400/10 text-cyan-300',
     },
     {
         number: '04',
         icon: Layers3,
         title: 'Full-Stack Builds & API Integrations',
         description:
-            'End-to-end custom architecture utilizing NestJS, Supabase, Redis, and payment gateways like Chapa and Stripe.',
-        action: 'Book Service',
-        accent: 'border-amber-300/25 bg-amber-300/[0.04]',
-        iconStyle: 'bg-amber-300/10 text-amber-200',
+            'End-to-end custom architecture, secure database design, and robust third-party API integrations built to scale.',
+        action: 'Inquire Now',
+        accent: 'border-cyan-400/35 bg-cyan-400/[0.04]',
+        iconStyle: 'bg-cyan-400/15 text-cyan-300',
     },
 ]
 
 export default function Servicesw() {
     return (
-        <main className="min-h-screen overflow-hidden bg-[#0b0f19] text-slate-100">
-            <div className="mx-auto max-w-7xl px-6 py-8 sm:px-10 lg:px-16 lg:py-12">
-                <section id="services" className="relative py-20 sm:py-28">
-                    <div className="pointer-events-none absolute -right-40 -top-32 size-112 rounded-full bg-cyan-400/[0.07] blur-3xl" />
+        <main id='services' className="section-space overflow-hidden bg-[#0b0f19] text-slate-100 scroll-mt-10">
+            <div className="content-shell">
+                <section className="relative">
                     <div className="relative max-w-3xl">
                         <p className="section-index">
-                            // 04 - what I do
+                            // 03 - CORE SERVICES
                         </p>
-                        <h1 className="text-balance text-4xl font-semibold tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl">
-                            Services <span className="text-slate-500">&amp;</span> Offerings
+                        <h1 className="section-title text-balance text-white">
+                            Services <span className="section-title-accent">&amp;</span> Offerings
                         </h1>
                         <p className="mt-7 max-w-xl text-base leading-7 text-slate-400 sm:text-lg">
-                            Thoughtful engineering for ambitious products — from the first pixel to the final API call.
+                            Thoughtful engineering for your product — from the first pixel to the final API call.
                         </p>
                     </div>
 
@@ -77,7 +87,7 @@ export default function Servicesw() {
                                 >
                                     <div>
                                         <div className="flex items-start justify-between">
-                                            <div className={`flex size-11 items-center justify-center rounded-xl ${service.iconStyle}`}>
+                                            <div className={`flex size-11 items-center justify-center rounded-lg ${service.iconStyle}`}>
                                                 <Icon aria-hidden="true" className="size-5" />
                                             </div>
                                             <span className="font-mono text-xs text-slate-500">{service.number}</span>
@@ -88,11 +98,12 @@ export default function Servicesw() {
                                         <p className="mt-5 text-sm leading-6 text-slate-400">{service.description}</p>
                                     </div>
                                     <a
-                                        href="#contact"
-                                        className="mt-10 inline-flex w-fit items-center gap-2 border-b border-cyan-300/40 pb-1 text-sm font-medium text-cyan-300 transition-colors group-hover:border-cyan-300 group-hover:text-cyan-200"
-                                    >
+                                        href={`https://t.me/MintCodes_16?text=${encodeURIComponent(`Hi, I'm interested in your service: ${service.title}`)}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-auto inline-flex items-center justify-between w-full py-2.5 px-4 rounded-lg bg-cyan-400/5 border border-cyan-400/20 text-cyan-300 font-mono text-xs hover:bg-cyan-400/10 hover:border-cyan-400/40 transition-all duration-200 group"                                    >
                                         {service.action}
-                                        <ArrowUpRight aria-hidden="true" className="size-4" />
+                                        <ArrowUpRight aria-hidden="true" className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                                     </a>
                                 </article>
                             )
@@ -100,12 +111,12 @@ export default function Servicesw() {
                     </div>
                 </section>
 
-                <section id="contact" className="flex flex-col gap-6 border-t border-white/10 py-12 sm:flex-row sm:items-center sm:justify-between">
+                <section id="contact" className="flex flex-col gap-6 py-12 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                         <p className="font-mono text-xs uppercase tracking-[0.25em] text-cyan-300">Have a project in mind?</p>
                         <h2 className="mt-3 text-2xl font-medium tracking-tight text-white">Let&apos;s build something sharp.</h2>
                     </div>
-                    <a href="mailto:hello@mintcodes.dev" className="inline-flex w-fit items-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-semibold text-[#0b0f19] transition-transform hover:scale-[1.03]">
+                    <a href="https://t.me/MintCodes_16" className="inline-flex w-fit items-center gap-2 rounded-lg bg-cyan-300 px-5 py-3 text-sm font-semibold text-[#0b0f19] transition-transform hover:scale-[1.03]">
                         Start a conversation <ArrowUpRight aria-hidden="true" className="size-4" />
                     </a>
                 </section>
