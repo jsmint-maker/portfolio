@@ -4,7 +4,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Mint Codes — Full-Stack Web Applications',
-  description: 'Mint Codes architects high-performance full-stack web applications for ambitious teams worldwide and local businesses.',
+  description: 'High-performance web applications, online storefronts, and automated workflows built to scale your operations.',
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
