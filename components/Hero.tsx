@@ -1,5 +1,3 @@
-"use client"
-
 import { ArrowUpRight, Code2, Globe2, Sparkles } from 'lucide-react'
 import MintCodesLogoMark from './MintCodesLogoMark';
 

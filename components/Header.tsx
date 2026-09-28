@@ -1,5 +1,3 @@
-'use client'
-
 import { ArrowUpRight } from "lucide-react";
 import MintCodesLogoMark from "./MintCodesLogoMark";
 
@@ -23,13 +21,6 @@ export default function Header() {
                     <a
                         key={link.name}
                         href={link.href}
-                        onClick={(e) => {
-                            e.preventDefault();
-                            const target = document.querySelector(link.href);
-                            if (target) {
-                                target.scrollIntoView({ behavior: 'smooth' });
-                            }
-                        }}
                         className="text-sm text-gray-300 hover:text-[#00f2fe] transition-colors font-medium tracking-wide"
                     >
                         {link.name}
