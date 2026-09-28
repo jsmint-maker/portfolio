@@ -40,7 +40,7 @@ export default function Footer() {
                         ))}
                     </nav>
 
-                    <span className="font-mono text-[11px] text-slate-600">// Crafted with precision</span>
+                    <span className="font-mono text-[11px] text-slate-400">// Crafted with precision</span>
                 </div>
             </footer>
         </main>

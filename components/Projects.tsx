@@ -29,7 +29,7 @@ function ComingSoonCard({ category }: { category: Exclude<Category, 'All'> }) {
                     <span className="h-3 w-3 rounded-full bg-cyan-400/40" />
                     <span className="h-3 w-3 rounded-full bg-cyan-400/20" />
                 </div>
-                <span className="font-mono text-xs text-white/40">mint_codes / {category.toLowerCase()}</span>
+                <span className="font-mono text-xs text-white/60">mint_codes / {category.toLowerCase()}</span>
             </div>
 
             {/* Terminal Body */}
@@ -47,7 +47,7 @@ function ComingSoonCard({ category }: { category: Exclude<Category, 'All'> }) {
                     <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
                     Active R&amp;D
                 </span>
-                <span className="font-mono text-[10px] tracking-widest text-white/30 uppercase">Coming Soon</span>
+                <span className="font-mono text-[10px] tracking-widest text-white/60 uppercase">Coming Soon</span>
             </div>
         </article>
     )

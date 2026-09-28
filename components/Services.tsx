@@ -90,7 +90,7 @@ export default function Servicesw() {
                                             <div className={`flex size-11 items-center justify-center rounded-lg ${service.iconStyle}`}>
                                                 <Icon aria-hidden="true" className="size-5" />
                                             </div>
-                                            <span className="font-mono text-xs text-slate-500">{service.number}</span>
+                                            <span className="font-mono text-xs text-slate-400">{service.number}</span>
                                         </div>
                                         <h2 className="mt-10 text-xl font-medium leading-tight tracking-[-0.02em] text-white">
                                             {service.title}
