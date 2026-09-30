@@ -17,7 +17,16 @@ type Project = {
 
 const filters: Category[] = ['All', 'Full-Stack', 'Frontend']
 
-const projects: Project[] = []
+const projects: Project[] = [
+    {
+        title: 'Kalea Coffee & Roastery',
+        description: 'A high-performance artisanal cafe and bakery web application featuring live menu fetching, custom ordering, and smooth WhatsApp order integration.',
+        category: 'Full-Stack',
+        stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Zustand', 'Supabase'],
+        href: 'https://cafe-demo-psi-one.vercel.app/',
+        source: 'https://github.com/jsmint-maker/cafe-demo',
+    },
+]
 
 function ComingSoonCard({ category }: { category: Exclude<Category, 'All'> }) {
     return (
