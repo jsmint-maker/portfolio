@@ -62,15 +62,15 @@ const services: Service[] = [
 
 export default function Servicesw() {
     return (
-        <main id='services' className="section-space overflow-hidden bg-[#0b0f19] text-slate-100 scroll-mt-10">
-            <div className="content-shell">
+        <main id='services' className="overflow-hidden bg-[#0b0f19] py-[clamp(3rem,2vw,4.5rem)] text-slate-100 scroll-mt-10">
+            <div className="mx-auto w-[calc(100%-48px)] max-w-[1160px]">
                 <section className="relative">
                     <div className="relative max-w-3xl">
-                        <p className="section-index">
+                        <p className="mb-[22px] font-mono text-[11px] tracking-[0.18em] text-[#00f2fe] uppercase">
                             // 03 - CORE SERVICES
                         </p>
-                        <h1 className="section-title text-balance text-white">
-                            Services <span className="section-title-accent">&amp;</span> Offerings
+                        <h1 className="text-balance text-[clamp(2.75rem,7vw,5.375rem)] leading-[0.95] font-[650] tracking-[-0.07em] text-white">
+                            Services <span className="text-[#00f2fe]">&amp;</span> Offerings
                         </h1>
                         <p className="mt-7 max-w-xl text-base leading-7 text-slate-400 sm:text-lg">
                             Thoughtful engineering for your product — from the first pixel to the final API call.

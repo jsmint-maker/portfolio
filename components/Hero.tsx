@@ -5,8 +5,8 @@ export default function Hero() {
     return (
         <main id='home' className="scroll-mt-24 overflow-hidden bg-[#0b0f19] text-white selection:bg-[#00f2fe]/25 selection:text-white">
             <div className="relative isolate min-h-fit">
-                <div className="grid-overlay pointer-events-none absolute inset-0 opacity-40" />
-                <section id='home' className="content-shell relative z-10 flex min-h-[calc(100vh-88px)] items-center pb-16 pt-12 lg:pb-24 lg:pt-4">
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:48px_48px] [mask-image:linear-gradient(to_bottom,black,transparent_80%)] opacity-40" />
+                <section id='home' className="relative z-10 mx-auto flex min-h-[calc(100vh-88px)] w-[calc(100%-48px)] max-w-[1160px] items-center pb-16 pt-12 lg:pb-24 lg:pt-4">
                     <div className="grid w-full items-center gap-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)] lg:gap-12">
                         <div className="max-w-3xl">
                             <h1 className="max-w-4xl text-5xl leading-[0.98] font-semibold tracking-[-0.045em] text-balance sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
@@ -40,10 +40,10 @@ export default function Hero() {
                         </div>
                     </div>
                 </section>
-                <footer className="architecture-header mx-26">
-                    <div className="eyebrow"><span className="eyebrow-dot" /> MINT CODES // V1.0</div>
-                    <div className="header-line" />
-                    <div className="status">[STATUS: ONLINE]</div>
+                <footer className="mx-6 flex items-center gap-[18px] font-mono text-[10px] tracking-[0.14em] text-[#8ca4ae] uppercase md:mx-26 max-[560px]:gap-[10px] max-[560px]:text-[8px]">
+                    <div className="flex shrink-0 items-center gap-[10px] whitespace-nowrap text-[#c9f9fb]"><span className="size-1.5 rounded-full bg-[#00f2fe] shadow-[0_0_13px_#00f2fe]" /> MINT CODES // V1.0</div>
+                    <div className="h-px flex-1 bg-linear-to-r from-[#00f2fe]/25 to-transparent" />
+                    <div className="flex shrink-0 items-center gap-[9px] whitespace-nowrap max-[560px]:hidden">[STATUS: ONLINE]</div>
                 </footer>
             </div>
         </main>

@@ -1,7 +1,7 @@
 'use client'
 
-import { useMemo, useState } from 'react'
-import { ArrowUpRight, Code2, GitBranch, Terminal } from 'lucide-react'
+import { useMemo, useRef, useState } from 'react'
+import { ArrowUpRight, Code2, GitBranch, Terminal, X } from 'lucide-react'
 
 type Category = 'All' | 'Full-Stack' | 'Frontend'
 
@@ -12,6 +12,7 @@ type Project = {
     stack: string[]
     href?: string
     source?: string
+    sourcePrivate?: boolean
     badge?: 'Client Work' | 'Demo'
 }
 
@@ -26,13 +27,22 @@ const projects: Project[] = [
         href: 'https://cafe-demo-psi-one.vercel.app/',
         source: 'https://github.com/jsmint-maker/cafe-demo',
     },
+    {
+        title: "Axumite Crown Properties",
+        description:
+            "A luxury real estate frontend demo featuring curated Addis Ababa listings, dynamic filters, responsive property galleries, persistent favorites, and interactive inquiry and tour flows.",
+        category: "Frontend",
+        stack: ["Next.js", "TypeScript", "Tailwind CSS", "Zustand", "Lucide"],
+        href: "https://realestate-demo-hazel.vercel.app/",
+        sourcePrivate: true,
+    }
 ]
 
 function ComingSoonCard({ category }: { category: Exclude<Category, 'All'> }) {
     return (
-        <article className="relative overflow-hidden rounded-2xl border border-cyan-500/20 bg-[#0b0f19]/80 p-6 backdrop-blur-xl transition-all hover:border-cyan-500/40">
+        <article className="relative min-h-[320px] self-center overflow-hidden rounded-2xl border border-cyan-500/20 bg-[#0b0f19]/80 p-5 opacity-50 backdrop-blur-xl transition-all hover:border-cyan-500/40 hover:opacity-90">
             {/* Terminal Topline */}
-            <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+            <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-3">
                 <div className="flex items-center gap-2">
                     <span className="h-3 w-3 rounded-full bg-cyan-400/80" />
                     <span className="h-3 w-3 rounded-full bg-cyan-400/40" />
@@ -42,7 +52,7 @@ function ComingSoonCard({ category }: { category: Exclude<Category, 'All'> }) {
             </div>
 
             {/* Terminal Body */}
-            <div className="space-y-4 font-mono">
+            <div className="space-y-3 font-mono">
                 <p className="text-xs text-cyan-400">&gt; scanning {category.toLowerCase()} pipeline</p>
                 <p className="text-sm font-bold text-white tracking-wider">// STATUS: PIPELINE COMPILING</p>
                 <p className="text-xs text-white/60 leading-relaxed">
@@ -51,7 +61,7 @@ function ComingSoonCard({ category }: { category: Exclude<Category, 'All'> }) {
             </div>
 
             {/* Badge / Indicator */}
-            <div className="mt-8 flex items-center justify-between border-t border-white/5 pt-4">
+            <div className="mt-6 flex items-center justify-between border-t border-white/5 pt-3">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-cyan-500/10 px-3 py-1 font-mono text-xs font-medium text-cyan-400 border border-cyan-500/20">
                     <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
                     Active R&amp;D
@@ -63,24 +73,72 @@ function ComingSoonCard({ category }: { category: Exclude<Category, 'All'> }) {
 }
 
 function ProjectCard({ project }: { project: Project }) {
+    const sourceDialogRef = useRef<HTMLDialogElement>(null)
+
     return (
-        <article className="showcase-card showcase-card--project">
-            <div className="project-card-glow" aria-hidden="true" />
-            <div className="project-card-header">
-                <span className="project-index">0{projects.indexOf(project) + 1}</span>
-                <span className="project-category">{project.category}</span>
+        <article className="relative flex min-h-[320px] flex-col overflow-hidden rounded-2xl border border-[rgba(157,188,197,0.14)] bg-[linear-gradient(145deg,rgba(21,32,47,0.88),rgba(12,18,30,0.88))] p-6 transition-[transform,border-color,box-shadow] duration-250 hover:-translate-y-[5px] hover:border-[rgba(0,242,254,0.52)] hover:shadow-[0_15px_45px_rgba(0,242,254,0.1)] max-[560px]:min-h-[300px]">
+            <div className="absolute -top-[100px] -right-[90px] size-[220px] rounded-full bg-[#00f2fe]/[0.08] blur-[35px]" aria-hidden="true" />
+            <div className="relative flex justify-between font-mono text-[11px] tracking-[0.08em] text-[#5f7680] uppercase">
+                <span>0{projects.indexOf(project) + 1}</span>
+                <span className="text-[9px] text-[#00f2fe]">{project.category}</span>
             </div>
-            <div className="project-card-content">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <div className="stack-list" aria-label={`${project.title} technology stack`}>
-                    {project.stack.map((item) => <span key={item}>{item}</span>)}
+            <div className="relative mt-auto pb-10">
+                <h3 className="mb-3 text-[27px] tracking-[-0.04em]">{project.title}</h3>
+                <p className="max-w-[260px] text-[13px] leading-[1.65] text-[#93a4aa]">{project.description}</p>
+                <div className="mt-[22px] flex flex-wrap gap-[6px]" aria-label={`${project.title} technology stack`}>
+                    {project.stack.map((item) => <span className="rounded-[4px] border border-[#00f2fe]/20 bg-[#00f2fe]/[0.06] px-2 py-[5px] font-mono text-[10px] text-[#a1bbc1]" key={item}>{item}</span>)}
                 </div>
             </div>
-            <div className="project-links">
+            <div className="flex gap-5 border-t border-[rgba(157,188,197,0.13)] pt-[17px] [&_a]:inline-flex [&_a]:items-center [&_a]:gap-1.5 [&_a]:text-[11px] [&_a]:text-[#bdcdd1] [&_a]:no-underline [&_a:hover]:text-[#00f2fe] [&_svg]:size-[13px]">
                 <a href={project.href} aria-label={`View live demo of ${project.title}`}>Live Demo <ArrowUpRight aria-hidden="true" /></a>
-                <a href={project.source} aria-label={`View source code for ${project.title}`}>Source <Code2 aria-hidden="true" /></a>
+                {project.source ? (
+                    <a href={project.source} aria-label={`View source code for ${project.title}`}>Source <Code2 aria-hidden="true" /></a>
+                ) : project.sourcePrivate ? (
+                    <button
+                        type="button"
+                        onClick={() => sourceDialogRef.current?.showModal()}
+                        aria-haspopup="dialog"
+                        className="inline-flex cursor-pointer items-center gap-1.5 border-0 bg-transparent p-0 text-[11px] text-[#bdcdd1] hover:text-[#00f2fe]"
+                    >
+                        Source <Code2 aria-hidden="true" />
+                    </button>
+                ) : null}
             </div>
+            {project.sourcePrivate && (
+                <dialog
+                    ref={sourceDialogRef}
+                    aria-labelledby="private-source-title"
+                    className="m-auto w-[calc(100%-2rem)] max-w-md rounded-xl border border-cyan-300/20 bg-[#0b0f19] p-6 text-white shadow-2xl backdrop:bg-black/70"
+                    onClick={(event) => {
+                        if (event.target === sourceDialogRef.current) sourceDialogRef.current?.close()
+                    }}
+                >
+                    <div className="flex items-start justify-between gap-4">
+                        <div>
+                            <h2 id="private-source-title" className="text-lg font-semibold">The source code is private</h2>
+                            <p className="mt-2 text-sm leading-6 text-slate-300">
+                                If you&apos;d like access to the code, send me a DM on Telegram.
+                            </p>
+                        </div>
+                        <button
+                            type="button"
+                            onClick={() => sourceDialogRef.current?.close()}
+                            aria-label="Close dialog"
+                            className="rounded-md p-1 text-slate-400 transition-colors hover:text-white focus-visible:ring-2 focus-visible:ring-cyan-300"
+                        >
+                            <X aria-hidden="true" className="size-5" />
+                        </button>
+                    </div>
+                    <a
+                        href={`https://t.me/MintCodes_16?text=${encodeURIComponent(`Hello, I want the source code of "${project.title}".`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-6 inline-flex items-center gap-2 rounded-lg border border-cyan-300/30 bg-cyan-300/10 px-4 py-2.5 text-sm font-medium text-cyan-200 transition-colors hover:bg-cyan-300/20 focus-visible:ring-2 focus-visible:ring-cyan-300"
+                    >
+                        Message me on Telegram <ArrowUpRight aria-hidden="true" className="size-4" />
+                    </a>
+                </dialog>
+            )}
         </article>
     )
 }
@@ -93,45 +151,44 @@ export default function Projects() {
     )
 
     return (
-        <section id='projects' className="showcase-section scroll-mt-10" aria-labelledby="projects-heading">
-            <div className="showcase-shell content-shell">
-                <div className="showcase-heading-row">
-                    <div>
-                        <p className="section-index">// 02 - FEATURED PROJECTS</p>
-                        <h1 id="projects-heading" className="section-title">Projects <span className="section-title-accent">&amp;</span> Case Studies</h1>
-                        <p className="showcase-intro">Production-ready applications and scalable workflows built with purpose and clarity.</p>
+        <section id='projects' className="py-[clamp(3rem,2vw,4.5rem)] scroll-mt-10" aria-labelledby="projects-heading">
+            <div className="mx-auto w-[calc(100%-48px)] max-w-[1160px]">
+                <div className="flex items-end justify-between gap-8 max-[800px]:items-start">
+                    <div className="w-full">
+                        <p className="mb-[22px] font-mono text-[11px] tracking-[0.18em] text-[#00f2fe] uppercase">// 02 - FEATURED PROJECTS</p>
+                        <h1 id="projects-heading" className="text-[clamp(2.75rem,7vw,5.375rem)] leading-[0.95] font-[650] tracking-[-0.07em]">Projects <span className="text-[#00f2fe]">&amp;</span> Case Studies</h1>
+                        <p className="mt-6 max-w-[500px] text-[15px] leading-[1.7] text-[#8da1aa]">Production-ready applications and scalable workflows built with purpose and clarity.</p>
                     </div>
                 </div>
                 <div className='flex items-center mt-15 mb-6 pr-1'>
                     <div className='flex justify-between w-full'>
-                        <div className="filter-bar" role="tablist" aria-label="Filter projects by category">
+                        <div className="inline-flex gap-1 rounded-lg border border-[#9dbcc529] bg-[rgba(16,24,37,0.72)] p-1 max-[560px]:grid max-[560px]:w-full max-[560px]:grid-cols-3" role="tablist" aria-label="Filter projects by category">
                             {filters.map((filter) => (
                                 <button
                                     key={filter}
                                     type="button"
                                     role="tab"
                                     aria-selected={activeFilter === filter}
-                                    className={activeFilter === filter ? 'filter-button is-active' : 'filter-button'}
+                                    className={`rounded-[5px] px-4 py-2.5 text-[11px] font-semibold tracking-[0.08em] transition-[color,background,box-shadow] hover:text-[#e9f2f4] focus-visible:text-[#e9f2f4] focus-visible:outline-none ${activeFilter === filter ? 'bg-[#00f2fe] text-[#041217] shadow-[0_0_18px_rgba(0,242,254,0.22)]' : 'text-[#82969e]'}`}
                                     onClick={() => setActiveFilter(filter)}
                                 >
                                     {filter}
                                 </button>
                             ))}
                         </div>
-                        <div className="project-count" aria-label={`${visibleProjects.length} active projects`}>
-                            <strong>{String(visibleProjects.length).padStart(2, '0')}</strong>
+                        <div className="flex items-end gap-[10px] pb-2 font-mono text-[10px] leading-[1.25] tracking-[0.12em] text-[#6d818b] uppercase max-[800px]:hidden" aria-label={`${visibleProjects.length} active projects`}>
+                            <strong className="text-[30px] font-normal tracking-[-0.08em] text-[#e9f2f4]">{String(visibleProjects.length).padStart(2, '0')}</strong>
                             <span>active<br />projects</span>
                         </div>
                     </div>
                 </div>
 
-                <div className="projects-grid" key={activeFilter}>
+                <div className="grid grid-cols-3 gap-4 animate-in fade-in slide-in-from-bottom-2 duration-500 max-[800px]:grid-cols-2 max-[560px]:grid-cols-1" key={activeFilter}>
                     {visibleProjects.map((project) => <ProjectCard key={project.title} project={project} />)}
-                    {(activeFilter === 'All' || visibleProjects.length < 1) && <ComingSoonCard category={activeFilter === 'All' ? 'Frontend' : activeFilter} />}
-                    {activeFilter === 'All' && <ComingSoonCard category="Full-Stack" />}
+                    {activeFilter !== 'Frontend' && <ComingSoonCard category="Full-Stack" />}
                 </div>
 
-                <div className="showcase-footer"><GitBranch aria-hidden="true" /><span>More work is always in the pipeline.</span><span className="footer-line" /></div>
+                <div className="mt-8 flex items-center gap-3 font-mono text-[10px] tracking-[0.08em] text-[#5f767f] uppercase [&_svg]:w-[14px] [&_svg]:text-[#00f2fe]"><GitBranch aria-hidden="true" /><span>More work is always in the pipeline.</span><span className="h-px flex-1 bg-linear-to-r from-[#00f2fe]/[0.32] to-transparent" /></div>
             </div>
         </section>
     )

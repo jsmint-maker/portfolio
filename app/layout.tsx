@@ -42,8 +42,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
+    <html lang="en" className="[color-scheme:dark] scroll-smooth bg-[#0b0f19]">
+      <body className="m-0 bg-[#0b0f19] font-sans text-[#e9f2f4] antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

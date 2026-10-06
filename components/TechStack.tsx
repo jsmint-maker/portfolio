@@ -67,36 +67,36 @@ const categories: Category[] = [
 
 export default function TechStack() {
     return (
-        <main className="architecture-page">
-            <section id="skills" className="architecture-shell content-shell scroll-mt-12" aria-labelledby="architecture-title">
+        <main className="relative overflow-hidden bg-[#0b0f19] py-[clamp(3rem,2vw,4.5rem)] text-[#edfafd]">
+            <section id="skills" className="relative z-[1] mx-auto w-[calc(100%-48px)] max-w-[1160px] scroll-mt-12 max-[560px]:pt-6" aria-labelledby="architecture-title">
 
-                <div className="intro">
-                    <p className="section-index">// 01 — TECH STACK</p>
-                    <h1 id="architecture-title" className="section-title">Tech Stack <span className="section-title-accent">&amp;</span> Engineering Architecture</h1>
-                    <p className="intro-copy">A considered stack for building digital products that are fast, resilient, and made to last.</p>
+                <div className="max-w-none py-10 pb-5 max-[560px]:py-8 max-[560px]:pb-6">
+                    <p className="mb-[22px] font-mono text-[11px] tracking-[0.18em] text-[#00f2fe] uppercase">// 01 — TECH STACK</p>
+                    <h1 id="architecture-title" className="text-[clamp(2.75rem,7vw,5.375rem)] leading-[0.95] font-[650] tracking-[-0.07em]">Tech Stack <span className="text-[#00f2fe]">&amp;</span> Engineering Architecture</h1>
+                    <p className="mt-[30px] max-w-[430px] text-[15px] leading-[1.7] text-[#8295a3]">A considered stack for building digital products that are fast, resilient, and made to last.</p>
                 </div>
 
-                <div className="category-grid">
+                <div className="grid grid-cols-4 gap-3 max-[900px]:grid-cols-2 max-[560px]:grid-cols-1">
                     {categories.map((category) => (
-                        <article className="category-card rounded-2xl" key={category.number}>
-                            <div className="card-topline"><span>{category.number}</span></div>
-                            <div className="category-heading">
-                                <h2>{category.title}</h2>
-                                <p>{category.description}</p>
+                        <article className="min-h-[395px] border border-[rgba(126,223,231,0.15)] bg-[linear-gradient(145deg,rgba(26,40,53,0.64),rgba(13,22,34,0.46))] p-[18px] shadow-[inset_0_1px_rgba(255,255,255,0.04),0_18px_50px_rgba(0,0,0,0.14)] backdrop-blur-[14px] transition-[border-color,transform,background] duration-300 hover:border-[rgba(0,242,254,0.48)] hover:bg-[linear-gradient(145deg,rgba(27,55,67,0.72),rgba(13,22,34,0.58))] motion-reduce:transition-none max-[900px]:min-h-[360px] max-[560px]:min-h-0" key={category.number}>
+                            <div className="flex justify-between font-mono text-[11px] tracking-[0.14em] text-[#5f7680]"><span>{category.number}</span></div>
+                            <div className="min-h-[132px] pt-5 max-[560px]:min-h-[112px] max-[560px]:pt-[38px]">
+                                <h2 className="text-[19px] font-medium tracking-[-0.035em] text-[#e9fafc]">{category.title}</h2>
+                                <p className="mt-[10px] max-w-[190px] text-xs leading-[1.6] text-[#7f919f]">{category.description}</p>
                             </div>
-                            <div className="tech-list">
+                            <div className="border-t border-[rgba(126,223,231,0.13)]">
                                 {category.technologies.map((technology) => {
                                     const IconComponent = technology.icon;
 
                                     return (
-                                        <div className="tech-item" key={technology.name}>
-                                            <span className="tech-node" aria-hidden="true">
+                                        <div className="grid grid-cols-[26px_1fr_auto] items-center gap-[9px] border-b border-[rgba(126,223,231,0.09)] py-[11px]" key={technology.name}>
+                                            <span className="grid size-6 place-items-center rounded-full border border-[rgba(0,242,254,0.4)] font-mono text-[10px] text-[#00f2fe] shadow-[0_0_12px_rgba(0,242,254,0.08)]" aria-hidden="true">
                                                 {IconComponent ? (<IconComponent className="w-4 h-4 text-cyan-400" />) : (<span>{technology.mark}</span>)
 
                                                 }
                                             </span>
-                                            <span className="tech-name">{technology.name}</span>
-                                            <span className="tech-detail">{technology.detail}</span>
+                                            <span className="text-xs text-[#d6eff2]">{technology.name}</span>
+                                            <span className="text-right font-mono text-[9px] text-slate-400">{technology.detail}</span>
                                         </div>
                                     )
                                 })}
