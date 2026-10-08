@@ -133,7 +133,7 @@ function ProjectCard({ project }: { project: Project }) {
                         href={`https://t.me/MintCodes_16?text=${encodeURIComponent(`Hello, I want the source code of "${project.title}".`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-6 inline-flex items-center gap-2 rounded-lg border border-cyan-300/30 bg-cyan-300/10 px-4 py-2.5 text-sm font-medium text-cyan-200 transition-colors hover:bg-cyan-300/20 focus-visible:ring-2 focus-visible:ring-cyan-300"
+                        className="mt-6 inline-flex items-center gap-2 rounded-lg border border-cyan-300/30 bg-cyan-300/10 px-4 py-2.5 text-sm font-mono text-mint transition-colors hover:bg-cyan-300/20 focus-visible:ring-2 focus-visible:ring-cyan-300"
                     >
                         Message me on Telegram <ArrowUpRight aria-hidden="true" className="size-4" />
                     </a>

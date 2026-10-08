@@ -101,7 +101,7 @@ export default function Servicesw() {
                                         href={`https://t.me/MintCodes_16?text=${encodeURIComponent(`Hi, I'm interested in your service: ${service.title}`)}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="relative mt-6 flex items-center justify-between gap-2 rounded-lg border border-cyan-300/30 bg-cyan-300/10 px-4 py-2.5 text-sm font-medium text-cyan-200 transition-colors hover:bg-cyan-300/20 focus-visible:ring-2 focus-visible:ring-cyan-300">
+                                        className="relative mt-6 flex items-center justify-between gap-2 rounded-lg border border-cyan-300/30 bg-cyan-300/10 px-4 py-2.5 text-sm font-mono text-mint transition-colors hover:bg-cyan-300/20 focus-visible:ring-2 focus-visible:ring-cyan-300">
                                         {service.action}
                                         <ArrowUpRight aria-hidden="true" size={16} className="absolute top-3 right-3 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                                     </a>
