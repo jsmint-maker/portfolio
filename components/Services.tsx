@@ -63,14 +63,14 @@ const services: Service[] = [
 export default function Servicesw() {
     return (
         <main id='services' className="overflow-hidden bg-[#0b0f19] py-[clamp(3rem,2vw,4.5rem)] text-slate-100 scroll-mt-10">
-            <div className="mx-auto w-[calc(100%-48px)] max-w-[1160px]">
+            <div className="mx-auto w-[calc(100%-48px)] max-w-290">
                 <section className="relative">
                     <div className="relative max-w-3xl">
-                        <p className="mb-[22px] font-mono text-[11px] tracking-[0.18em] text-[#00f2fe] uppercase">
+                        <p className="mb-5.5 font-mono text-[11px] tracking-[0.18em] text-mint uppercase">
                             // 03 - CORE SERVICES
                         </p>
                         <h1 className="text-balance text-[clamp(2.75rem,7vw,5.375rem)] leading-[0.95] font-[650] tracking-[-0.07em] text-white">
-                            Services <span className="text-[#00f2fe]">&amp;</span> Offerings
+                            Services <span className="text-mint">&amp;</span> Offerings
                         </h1>
                         <p className="mt-7 max-w-xl text-base leading-7 text-slate-400 sm:text-lg">
                             Thoughtful engineering for your product — from the first pixel to the final API call.
@@ -101,9 +101,9 @@ export default function Servicesw() {
                                         href={`https://t.me/MintCodes_16?text=${encodeURIComponent(`Hi, I'm interested in your service: ${service.title}`)}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="mt-auto inline-flex items-center justify-between w-full py-2.5 px-4 rounded-lg bg-cyan-400/5 border border-cyan-400/20 text-cyan-300 font-mono text-xs hover:bg-cyan-400/10 hover:border-cyan-400/40 transition-all duration-200 group"                                    >
+                                        className="relative mt-6 flex items-center justify-between gap-2 rounded-lg border border-cyan-300/30 bg-cyan-300/10 px-4 py-2.5 text-sm font-medium text-cyan-200 transition-colors hover:bg-cyan-300/20 focus-visible:ring-2 focus-visible:ring-cyan-300">
                                         {service.action}
-                                        <ArrowUpRight aria-hidden="true" className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                                        <ArrowUpRight aria-hidden="true" size={16} className="absolute top-3 right-3 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                                     </a>
                                 </article>
                             )

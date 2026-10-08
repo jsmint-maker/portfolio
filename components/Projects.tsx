@@ -40,7 +40,7 @@ const projects: Project[] = [
 
 function ComingSoonCard({ category }: { category: Exclude<Category, 'All'> }) {
     return (
-        <article className="relative min-h-[320px] self-center overflow-hidden rounded-2xl border border-cyan-500/20 bg-[#0b0f19]/80 p-5 opacity-50 backdrop-blur-xl transition-all hover:border-cyan-500/40 hover:opacity-90">
+        <article className="relative min-h-80 self-center overflow-hidden rounded-2xl border border-cyan-500/20 bg-[#0b0f19]/80 p-5 opacity-50 backdrop-blur-xl transition-all hover:border-cyan-500/40 hover:opacity-90">
             {/* Terminal Topline */}
             <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-3">
                 <div className="flex items-center gap-2">
@@ -76,20 +76,20 @@ function ProjectCard({ project }: { project: Project }) {
     const sourceDialogRef = useRef<HTMLDialogElement>(null)
 
     return (
-        <article className="relative flex min-h-[320px] flex-col overflow-hidden rounded-2xl border border-[rgba(157,188,197,0.14)] bg-[linear-gradient(145deg,rgba(21,32,47,0.88),rgba(12,18,30,0.88))] p-6 transition-[transform,border-color,box-shadow] duration-250 hover:-translate-y-[5px] hover:border-[rgba(0,242,254,0.52)] hover:shadow-[0_15px_45px_rgba(0,242,254,0.1)] max-[560px]:min-h-[300px]">
-            <div className="absolute -top-[100px] -right-[90px] size-[220px] rounded-full bg-[#00f2fe]/[0.08] blur-[35px]" aria-hidden="true" />
+        <article className="relative flex min-h-80 flex-col overflow-hidden rounded-2xl border border-[rgba(157,188,197,0.14)] bg-[linear-gradient(145deg,rgba(21,32,47,0.88),rgba(12,18,30,0.88))] p-6 transition-[transform,border-color,box-shadow] duration-250 hover:-translate-y-1.25 hover:border-[rgba(0,242,254,0.52)] hover:shadow-[0_15px_45px_rgba(0,242,254,0.1)] max-[560px]:min-h-75">
+            <div className="absolute -top-25 -right-22.5 size-55 rounded-full bg-mint/8 blur-[35px]" aria-hidden="true" />
             <div className="relative flex justify-between font-mono text-[11px] tracking-[0.08em] text-[#5f7680] uppercase">
                 <span>0{projects.indexOf(project) + 1}</span>
-                <span className="text-[9px] text-[#00f2fe]">{project.category}</span>
+                <span className="text-[9px] text-mint">{project.category}</span>
             </div>
             <div className="relative mt-auto pb-10">
                 <h3 className="mb-3 text-[27px] tracking-[-0.04em]">{project.title}</h3>
-                <p className="max-w-[260px] text-[13px] leading-[1.65] text-[#93a4aa]">{project.description}</p>
-                <div className="mt-[22px] flex flex-wrap gap-[6px]" aria-label={`${project.title} technology stack`}>
-                    {project.stack.map((item) => <span className="rounded-[4px] border border-[#00f2fe]/20 bg-[#00f2fe]/[0.06] px-2 py-[5px] font-mono text-[10px] text-[#a1bbc1]" key={item}>{item}</span>)}
+                <p className="max-w-65 text-[13px] leading-[1.65] text-[#93a4aa]">{project.description}</p>
+                <div className="mt-5.5 flex flex-wrap gap-1.5" aria-label={`${project.title} technology stack`}>
+                    {project.stack.map((item) => <span className="rounded-sm border border-mint/20 bg-mint/6 px-2 py-1.25 font-mono text-[10px] text-[#a1bbc1]" key={item}>{item}</span>)}
                 </div>
             </div>
-            <div className="flex gap-5 border-t border-[rgba(157,188,197,0.13)] pt-[17px] [&_a]:inline-flex [&_a]:items-center [&_a]:gap-1.5 [&_a]:text-[11px] [&_a]:text-[#bdcdd1] [&_a]:no-underline [&_a:hover]:text-[#00f2fe] [&_svg]:size-[13px]">
+            <div className="flex gap-5 border-t border-[rgba(157,188,197,0.13)] pt-4.25 [&_a]:inline-flex [&_a]:items-center [&_a]:gap-1.5 [&_a]:text-[11px] [&_a]:text-[#bdcdd1] [&_a]:no-underline [&_a:hover]:text-mint [&_svg]:size-3.25">
                 <a href={project.href} aria-label={`View live demo of ${project.title}`}>Live Demo <ArrowUpRight aria-hidden="true" /></a>
                 {project.source ? (
                     <a href={project.source} aria-label={`View source code for ${project.title}`}>Source <Code2 aria-hidden="true" /></a>
@@ -98,7 +98,7 @@ function ProjectCard({ project }: { project: Project }) {
                         type="button"
                         onClick={() => sourceDialogRef.current?.showModal()}
                         aria-haspopup="dialog"
-                        className="inline-flex cursor-pointer items-center gap-1.5 border-0 bg-transparent p-0 text-[11px] text-[#bdcdd1] hover:text-[#00f2fe]"
+                        className="inline-flex cursor-pointer items-center gap-1.5 border-0 bg-transparent p-0 text-[11px] text-[#bdcdd1] hover:text-mint"
                     >
                         Source <Code2 aria-hidden="true" />
                     </button>
@@ -152,32 +152,32 @@ export default function Projects() {
 
     return (
         <section id='projects' className="py-[clamp(3rem,2vw,4.5rem)] scroll-mt-10" aria-labelledby="projects-heading">
-            <div className="mx-auto w-[calc(100%-48px)] max-w-[1160px]">
+            <div className="mx-auto w-[calc(100%-48px)] max-w-290">
                 <div className="flex items-end justify-between gap-8 max-[800px]:items-start">
                     <div className="w-full">
-                        <p className="mb-[22px] font-mono text-[11px] tracking-[0.18em] text-[#00f2fe] uppercase">// 02 - FEATURED PROJECTS</p>
-                        <h1 id="projects-heading" className="text-[clamp(2.75rem,7vw,5.375rem)] leading-[0.95] font-[650] tracking-[-0.07em]">Projects <span className="text-[#00f2fe]">&amp;</span> Case Studies</h1>
-                        <p className="mt-6 max-w-[500px] text-[15px] leading-[1.7] text-[#8da1aa]">Production-ready applications and scalable workflows built with purpose and clarity.</p>
+                        <p className="mb-5.5 font-mono text-[11px] tracking-[0.18em] text-mint uppercase">// 02 - FEATURED PROJECTS</p>
+                        <h1 id="projects-heading" className="text-[clamp(2.75rem,7vw,5.375rem)] leading-[0.95] font-[650] tracking-[-0.07em]">Projects <span className="text-mint">&amp;</span> Case Studies</h1>
+                        <p className="mt-6 max-w-125t-[15px] leading-[1.7] text-[#8da1aa]">Production-ready applications and scalable workflows built with purpose and clarity.</p>
                     </div>
                 </div>
                 <div className='flex items-center mt-15 mb-6 pr-1'>
                     <div className='flex justify-between w-full'>
-                        <div className="inline-flex gap-1 rounded-lg border border-[#9dbcc529] bg-[rgba(16,24,37,0.72)] p-1 max-[560px]:grid max-[560px]:w-full max-[560px]:grid-cols-3" role="tablist" aria-label="Filter projects by category">
+                        <div className="inline-flex gap-1 rounded-lg border border-border bg-[rgba(16,24,37,0.72)] p-1 max-[560px]:grid max-[560px]:w-full max-[560px]:grid-cols-3" role="tablist" aria-label="Filter projects by category">
                             {filters.map((filter) => (
                                 <button
                                     key={filter}
                                     type="button"
                                     role="tab"
                                     aria-selected={activeFilter === filter}
-                                    className={`rounded-[5px] px-4 py-2.5 text-[11px] font-semibold tracking-[0.08em] transition-[color,background,box-shadow] hover:text-[#e9f2f4] focus-visible:text-[#e9f2f4] focus-visible:outline-none ${activeFilter === filter ? 'bg-[#00f2fe] text-[#041217] shadow-[0_0_18px_rgba(0,242,254,0.22)]' : 'text-[#82969e]'}`}
+                                    className={`rounded-[5px] px-4 py-2.5 text-[11px] font-semibold tracking-[0.08em] transition-[color,background,box-shadow] hover:text-foreground focus-visible:text-foreground focus-visible:outline-none ${activeFilter === filter ? 'bg-mint text-[#041217] shadow-[0_0_18px_rgba(0,242,254,0.22)]' : 'text-[#82969e]'}`}
                                     onClick={() => setActiveFilter(filter)}
                                 >
                                     {filter}
                                 </button>
                             ))}
                         </div>
-                        <div className="flex items-end gap-[10px] pb-2 font-mono text-[10px] leading-[1.25] tracking-[0.12em] text-[#6d818b] uppercase max-[800px]:hidden" aria-label={`${visibleProjects.length} active projects`}>
-                            <strong className="text-[30px] font-normal tracking-[-0.08em] text-[#e9f2f4]">{String(visibleProjects.length).padStart(2, '0')}</strong>
+                        <div className="flex items-end gap-2.5 pb-2 font-mono text-[10px] leading-tight tracking-[0.12em] text-[#6d818b] uppercase max-[800px]:hidden" aria-label={`${visibleProjects.length} active projects`}>
+                            <strong className="text-[30px] font-normal tracking-[-0.08em] text-foreground">{String(visibleProjects.length).padStart(2, '0')}</strong>
                             <span>active<br />projects</span>
                         </div>
                     </div>
@@ -188,7 +188,7 @@ export default function Projects() {
                     {activeFilter !== 'Frontend' && <ComingSoonCard category="Full-Stack" />}
                 </div>
 
-                <div className="mt-8 flex items-center gap-3 font-mono text-[10px] tracking-[0.08em] text-[#5f767f] uppercase [&_svg]:w-[14px] [&_svg]:text-[#00f2fe]"><GitBranch aria-hidden="true" /><span>More work is always in the pipeline.</span><span className="h-px flex-1 bg-linear-to-r from-[#00f2fe]/[0.32] to-transparent" /></div>
+                <div className="mt-8 flex items-center gap-3 font-mono text-[10px] tracking-[0.08em] text-[#5f767f] uppercase [&_svg]:w-3.5 [&_svg]:text-mint"><GitBranch aria-hidden="true" /><span>More work is always in the pipeline.</span><span className="h-px flex-1 bg-linear-to-r from-mint/32 to-transparent" /></div>
             </div>
         </section>
     )
